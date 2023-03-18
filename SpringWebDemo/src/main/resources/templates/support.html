@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+
+<head>
+	<title>Nile E-Commerce Customer Suppport Form</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+
+<style>
+	form div {
+		display: table-row;
+		padding: 4px;
+	}
+	
+	label, input, select {
+		display: table-cell;
+		margin: 5px;
+		
+		text-align: left;
+	}
+
+	form div div {
+		display: table-cell;
+	}
+</style>
+
+<body>
+
+	<h2>Nile E-commerce Customer Support Form</h2>
+	<form action="#" th:action="@{/support}" th:object="${supportDetails}" method="post">
+		
+		<div>
+			<label>Customer Id:</label>
+			<input type="text" th:field="*{id}"/>
+		</div>
+		<div>
+			<label>Name:</label>
+			<input type="text" th:field="*{name}"/>
+		</div>
+		<div>
+			<label>Email:</label>
+			<input type="text" th:field="*{email}"/>
+		</div>
+		<div>
+			<label>Gender:</label>
+			<input type="radio" th:field="*{gender}" value="Male"/>Male
+			<input type="radio" th:field="*{gender}" value="Female"/>Female
+		</div>
+		<div>
+			<label>Membership:</label>
+			<select th:field="*{membership}">
+				<option th:each="listItem : ${membershipList}" th:value="${listItem}" th:text="${listItem}"/>
+			</select>
+		</div>
+		<div>
+			<label>Request:</label>
+			<input type="text" th:field="*{content}"/>
+		</div>
+		
+		<p>
+			<input type="submit" value="Submit"/>
+			<input type="reset" value="Reset"/>
+		</p>
+	</form>
+</body>
+
+</html>
