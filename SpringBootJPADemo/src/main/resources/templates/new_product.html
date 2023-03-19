@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+	
+<head>
+	<meta charset="utf-8"/>
+	<title>Add New Product</title>
+	
+	<style>
+		.button {
+			border: none;
+			color: white;
+			padding: 10px 130px;
+			text-align: center;
+			font-size: 16px;
+		}
+		
+		.button1 {background-color: #2790F3;}
+	</style>
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+	
+</head>
+
+<style>
+	table, th, td {padding:10px}
+</style>
+
+<body>
+	<div align="center">
+		<h2>Add new product</h2>
+		<br/>
+		
+		<form action="#" th:action="@{/save_new}" th:object="${product}" 
+			method="post">
+			
+			<table>
+				<tr>
+					<td>Name:</td>
+					<td><input type="text" th:field="*{name}" /></td>
+				</tr>
+				
+				<tr>
+					<td>Category:</td>
+					<td><input type="text" th:field="*{category}"/></td>
+				</tr>
+				
+				<tr>
+					<td colspan="2"><button class="button button1 btn" type="submit">Save</button></td>
+				</tr>
+				
+			</table>
+		</form>
+		
+	</div>
+</body>
+
+</html>
